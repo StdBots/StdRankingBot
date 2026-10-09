@@ -1,0 +1,16 @@
+[Unit]
+Description=StdRankingBot - Enterprise Telegram Ranking & Leaderboard Daemon
+After=network.target mongodb.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/stdbots/StdRankingBot
+ExecStart=/opt/stdbots/StdRankingBot/bin/bot
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/stdbots/StdRankingBot/.env
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
